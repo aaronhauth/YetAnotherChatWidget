@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css?family={fontName}');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
+
+
+.animate__animated.animate__{{newMessageAnimation}}{{newMessageAnimationDirection}} {
+  --animate-duration: {{newAnimationSpeed}}s;
+}
+
+.animate__animated.animate__{{oldMessageAnimation}}{{oldMessageAnimationDirection}} {
+  --animate-duration: {{oldAnimationSpeed}}s;
+}
+  
+* {
+  font-size: {{fontSize}}px;
+  font-family: "{{fontName}}";
+  margin: 0;
+}
+
+.badges {
+  white-space: nowrap;
+}
+
+.badges > img {
+	display: inline-block;
+    height: 1em;
+    position: relative;
+	top: 0.15em;
+    padding-right: 2px;
+  	padding-left: 2px;
+}
+
+.emote > img {
+  height: {{emoteSize}};
+  vertical-align: bottom;
+}
+
+
+.container {
+  margin: 5px;
+  background-color: {{textboxColor}};
+  height: calc(100% - 2 * {{textboxBorderWidth}}px - 10px);
+  width: calc(100% - 2 * {{textboxBorderWidth}}px - 10px);
+  border-radius: {{chatBoxCornerRadius}}px;
+  border-width: {{textboxBorderWidth}}px;
+  border-color: {{textboxBorderColor}};
+  border-style: solid;
+  overflow: hidden;
+}
+
+.chatContainer {
+  width: calc(100% - {{leftChatPadding}}px - {{rightChatPadding}}px);
+  height: calc(100% - {{topChatPadding}}px - {{bottomChatPadding}}px);
+  display: flex;
+  flex-direction: column-reverse;
+  padding-left: {{leftChatPadding}}px;
+  padding-right: {{rightChatPadding}}px;
+  /* using margin for top instead of padding so that it cuts off text as its pushed out of the message area*/
+  margin-top: {{topChatPadding}}px;
+  padding-bottom: {{bottomChatPadding}}px;
+  overflow: hidden;
+}
+
+.usernameContainer {
+  white-space: nowrap;
+}
+
+.userName {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-weight: bold;
+}
+
+
+.flexRow {
+  display: flex;
+  flex-direction: row;
+}
+
+.sideBySideUsername {
+  width: 33%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  text-align: right;
+  line-height: {{emoteSize}};
+  padding-right: 5px;
+}
+
+.sideBySideMessage {
+  width: 66%
+}
+
+.message {
+  color: {{textColor}};
+  line-height: {{emoteSize}};
+}
+
+
+.chatMessage {
+  display: flex;
+  flex-direction: row;
+  background-color: {{chatMessageColor}};
+  box-sizing: border-box;
+  padding-left: {{leftMessagePadding}}px;
+  padding-right: {{rightMessagePadding}}px;
+  padding-top: {{topMessagePadding}}px;
+  padding-bottom:  {{bottomMessagePadding}}px;
+  border-radius: {{messageBoxCornerRadius}}px;
+  margin-top: {{messageMargins}}px;
+  border-style: solid;
+  border-width: {{messageBorderWidth}}px;
+  border-color: {{messageBorderColor}};
+}
