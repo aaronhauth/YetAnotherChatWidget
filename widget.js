@@ -101,11 +101,11 @@ jQuery.expr.filters.offscreen = function(el) {
       message = `    
     <div class="chatMessage flexRow ${animationMessages}" id="id${messageData.msgId}" ${inlineStyle}>
       ${usernameTemplate}
-      <div class="message sideBySideMessage" >${messageTemplate}</div>
+      <div class="message sideBySideMessage longWordWrap" >${messageTemplate}</div>
     </div>`
     } else {
       message = `    
-    <div class="chatMessage ${animationMessages}" id="id${messageData.msgId}" ${inlineStyle}>
+    <div class="chatMessage longWordWrap ${animationMessages}" id="id${messageData.msgId}" ${inlineStyle}>
       <div class="message">${usernameTemplate}${messageTemplate}</div>
     </div>`
     }
@@ -797,7 +797,7 @@ jQuery.expr.filters.offscreen = function(el) {
           }
       ],
       "channel": "aaroniush",
-      "text": "Howdy! ­Ъца­Ъца",
+      "text": "Howdy! 🤠🤠",
       "isAction": false,
       "emotes": [
           {
