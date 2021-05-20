@@ -61,7 +61,7 @@
 }
 
 .usernameContainer {
-  white-space: nowrap;
+  /*white-space: nowrap;*/
 }
 
 .userName {
@@ -83,15 +83,17 @@
   text-align: right;
   line-height: {{emoteSize}};
   padding-right: 5px;
+  white-space: nowrap;
 }
 
 .sideBySideMessage {
-  width: 66%
+  width: 66%;
 }
 
 .message {
   color: {{textColor}};
   line-height: {{emoteSize}};
+  width: 100%;
 }
 
 

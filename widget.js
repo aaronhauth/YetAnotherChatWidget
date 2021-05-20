@@ -2,11 +2,10 @@
 // in removing elements that are offscreen
 jQuery.expr.filters.offscreen = function(el) {
     var rect = el.getBoundingClientRect();
-    return (
-             (rect.x + rect.width) < 0 
+
+    return (rect.x + rect.width) < 0 
                || (rect.y + rect.height) < 0
-               || (rect.x > window.innerWidth || rect.y > window.innerHeight + 1000) // added a 1000 px buffer so that if comments are removed, some of the messages off frame can side back down
-           );
+               || (rect.x > window.innerWidth || rect.y > window.innerHeight + 1000); // added a 1000 px buffer so that if comments are removed, some of the messages off frame can side back down
   };
   
   var blacklistUsers = [];
@@ -17,6 +16,8 @@ jQuery.expr.filters.offscreen = function(el) {
   
   // if a user doesn't have a provided display color. we make one up and store the link in this dictionary!
   const colorlessUsers = {};
+
+  var messageNumber = 0;
   
   // sidebar field data with settings
   var fieldData;
@@ -85,7 +86,7 @@ jQuery.expr.filters.offscreen = function(el) {
     }
     
     // compile username area
-    var usernameTemplate = `    <span class="usernameContainer ${fieldData.sideBySide ? 'sideBySideUsername' : ''}">
+    var usernameTemplate = `    <span class="usernameContainer ${fieldData.sideBySide === "true" ? 'sideBySideUsername' : ''}">
         <span class="badges">${badgeTemplate}</span>
         <span class="userName" style="${generateTextColorStyleString(messageData.displayColor, fieldData.textColorTransform, messageData.displayName)}">${messageData.displayName }</span>${messageData.isAction ? '' : ':'}
       </span>`
@@ -116,22 +117,40 @@ jQuery.expr.filters.offscreen = function(el) {
     // add message to beginning of list
     $(".chatContainer").prepend(domMessage);
     if (fieldData.duration > 0) {
-      inFlightMessages[messageData.msgId] = {timeoutId: setTimeout(removeDomMessage(domMessage), fieldData.duration * 1000),
+      inFlightMessages[messageData.msgId] = {messageNumber: messageNumber++, timeoutId: setTimeout(removeDomMessage(domMessage), fieldData.duration * 1000),
                                      userId: messageData.userId};
+    } else {
+      inFlightMessages[messageData.msgId] = {messageNumber: messageNumber++, timeoutId: null, userId: messageData.userId};
     }
     
     // clear any messages that are significantly off-screen.
     // I leave a bit of a buffer in the event that a mod deletes a message, 
     // which will aid in replacing deleted messages with some older ones
-    if ($(".chatMessage .isReady").is(":offscreen")) {
-      $(".chatMessage .isReady :offscreen").each(() => {
-        clearTimeout(inFlightMessages[this.id])
-        delete inFlightMessages[this.id];
-      })
-    }
-    $(".chatMessage .isReady :offscreen").remove();
+
+    $(".isReady:offscreen").each((_, element) => {
+      let id = extractId(element.id);
+      clearTimeout(inFlightMessages[id])
+      delete inFlightMessages[id];
+    })
+    $(".isReady:offscreen").remove();
     
-    setTimeout(markForReady(domMessage), fieldData.newAnimationSpeed * 1000);
+    if (fieldData.newAnimationSpeed) {
+      setTimeout(markForReady(domMessage), fieldData.newAnimationSpeed * 1000);
+    } else {
+      markForReady(domMessage);
+    }
+    
+    if (fieldData.messageLimit && $(".chatMessage").not(".isRemoving").length > fieldData.messageLimit) {
+      console.log(inFlightMessages);
+	  let messageToRemove = $(".chatMessage").not(".isRemoving").last();
+      console.log(messageToRemove);
+      let inFlightMessageId = extractId(messageToRemove[0].id);
+      clearTimeout(inFlightMessages[inFlightMessageId]);
+      delete inFlightMessages[inFlightMessageId];
+      console.log("removing Message")
+      removeDomMessage(messageToRemove)();
+    }
+    
     
   });
   
@@ -154,7 +173,12 @@ jQuery.expr.filters.offscreen = function(el) {
       
       // add outro animation, if exists
       if (fieldData.oldMessageAnimation && fieldData.oldMessageAnimation != "none") {
+        if (!domMessage.hasClass("animate__animated")) {
+          domMessage.addClass("animate__animated");
+        }
+        
         let classToAdd = generateClassName(fieldData.oldMessageAnimation, fieldData.oldMessageAnimationDirection)
+        domMessage.addClass("isRemoving");
         domMessage.addClass(classToAdd);
         setTimeout(() => {
           domMessage.remove();
@@ -186,11 +210,16 @@ jQuery.expr.filters.offscreen = function(el) {
     }
     return className;
   }
+
+  function extractId(domId) {
+    return domId.slice(2);
+  }
   
   // generate the text color. If we want to brighten or darken the text color, we apply a filter too
   function generateTextColorStyleString(color, transform, username) {
     let returnStyle = '';
     let tempColor = '';
+
     if (!color && !colorlessUsers[username]) {
       tempColor = '#' + Math.floor(Math.random()*16777215).toString(16);
       colorlessUsers[username] = tempColor;
@@ -201,6 +230,8 @@ jQuery.expr.filters.offscreen = function(el) {
     }
       
     returnStyle = `color: ${tempColor};`;
+    
+    
   
     // if we're brightening AND the color is dark, brighten
     if (transform == 'brighten' && !isColorLight(tempColor)) {
@@ -209,7 +240,7 @@ jQuery.expr.filters.offscreen = function(el) {
     // if we're darkening AND the color is bright, darken.
     if (transform == 'darken' && isColorLight(tempColor)) {
       returnStyle += ` filter: brightness(80%);`;
-    }
+     }
     return returnStyle;
   }
   

@@ -1,321 +1,329 @@
 {
-    "testButton": {
-      "type": "button",
-      "label": "Test Message",
-      "value": "test"
-    },
-    "emoteSize": {
-      "type": "dropdown",
-      "label": "Emote Size:",
-      "value": "medium",
-      "options": {
-        "1.25em": "Small",
-        "1.5em": "Medium",
-        "1.75em": "Large"
-      } 
-    },
-    "enableDropshadow": {
-      "group": "Message Box Styles",
-      "type": "dropdown",
-      "label": "Add Drop-Shadow",
-      "value": "false",
-      "options": {
-        "true": "Yes",
-        "false": "No"
-      } 
-    },
-    "filterCommands": {
-      "group": "Message Filtering",
-      "type": "dropdown",
-      "label": "Filter Chat Commands:",
-      "value": "false",
-      "options": {
-        "true": "Yes",
-        "false": "No"
-      } 
-    },
-    "whitelistUsers": {
-      "group": "Message Filtering",
-      "type": "text",
-      "label": "White-List Users (separate with commas)",
-      "value": ""
-    },
-    "blacklistUsers": {    
-      "group": "Message Filtering",
-      "type": "text",
-      "label": "Black-List Users (separate with commas)",
-      "value": ""
-    },
-    "textboxColor": {
-      "group": "Chat Box Styles",
-      "type": "colorpicker",
-      "label": "Chat-box color",
-      "value": "#434343"
-    },
-    "textboxBorderColor": {
-      "group": "Chat Box Styles",
-      "type": "colorpicker",
-      "label": "Chat Box Border Color",
-      "value": "#0a0a0a"
-    },
-    "textboxBorderWidth": {
-      "group": "Chat Box Styles",
-      "type": "slider",
-      "label": "Chat Box Border Width",
-      "value": 10.5,
-      "min": 0,
-      "max": 20,
-      "step": 0.5
-    },
-    "chatMessageColor": {
-      "group": "Message Box Styles",
-      "type": "colorpicker",
-      "label": "Message Background Color",
-      "value": "rgba(133, 124, 124, 0.55)"
-    },
-    "textColor": {
-      "group": "Text Style",
-      "type": "colorpicker",
-      "label": "Message Text Color",
-      "value": "rgb(232, 231, 231)"
-    },
-    "fontSize": {
-      "group": "Text Style",
-      "type": "number",
-      "label": "Font Size",
-      "value": 12,
-      "min": 0,
-      "max": 100,
-      "step": 1
-    },
-    "textColorTransform": {
-      "group": "Text Style",
-      "type": "dropdown",
-      "label": "Message Color Mod:",
-      "value": "",
-      "options": {
-        "": "None",
-        "brighten": "Brighten",
-        "darken": "Darken"
-      }  
-    },
-    "chatBoxCornerRadius": {
-      "group": "Chat Box Styles",
-      "type": "slider",
-      "label": "Chat box Corner Radius",
-      "value": 47,
-      "min": 0,
-      "max": 100,
-      "step": 1
-    },
-    "messageBoxCornerRadius": {
-      "group": "Message Box Styles",
-      "type": "slider",
-      "label": "Message Corner Radius",
-      "value": 0.5,
-      "min": 0,
-      "max": 100,
-      "step": 1
-    },
-    "messageBorderColor": {
-      "group": "Message Box Styles",
-      "type": "colorpicker",
-      "label": "Chat Box Border Color",
-      "value": "#0a0a0a"
-    },
-    "messageBorderWidth": {
-      "group": "Message Box Styles",
-      "type": "slider",
-      "label": "Message Border Width",
-      "value": 0,
-      "min": 0,
-      "max": 20,
-      "step": 0.5
-    },
-    "leftMessagePadding": {
-      "group": "Message Box Styles",
-      "type": "number",
-      "label": "Left Padding (px)",
-      "value": 10,
-      "min": 0,
-      "step": 1
-    },
-    "rightMessagePadding": {
-      "group": "Message Box Styles",
-      "type": "number",
-      "label": "Right Padding (px)",
-      "value": 10,
-      "min": 0,
-      "step": 1
-    },
-    "topMessagePadding": {
-      "group": "Message Box Styles",
-      "type": "number",
-      "label": "Top Padding (px)",
-      "value": 10,
-      "min": 0,
-      "step": 1
-    },
-    "bottomMessagePadding": {
-      "group": "Message Box Styles",
-      "type": "number",
-      "label": "Bottom Padding (px)",
-      "value": 10,
-      "min": 0,
-      "step": 1
-    },
-    "leftChatPadding": {
-      "group": "Chat Box Styles",
-      "type": "number",
-      "label": "Left Padding (px)",
-      "value": 10,
-      "min": 0,
-      "step": 1
-    },
-    "rightChatPadding": {
-      "group": "Chat Box Styles",
-      "type": "number",
-      "label": "Right Padding (px)",
-      "value": 10,
-      "min": 0,
-      "step": 1
-    },
-    "topChatPadding": {
-      "group": "Chat Box Styles",
-      "type": "number",
-      "label": "Top Padding (px)",
-      "value": 10,
-      "min": 0,
-      "step": 1
-    },
-    "bottomChatPadding": {
-      "group": "Chat Box Styles",
-      "type": "number",
-      "label": "Bottom Padding (px)",
-      "value": 10,
-      "min": 0,
-      "step": 1
-    },
-    "messageMargins": {
-      "group": "Message Box Styles",
-      "type": "number",
-      "label": "Message Padding",
-      "value": 10,
-      "min": 0,
-      "step": 1
-    },
-    "fontName": {
-      "group": "Text Style",
-      "type": "googleFont",
-      "label": "Select a font:",
-      "value": "Roboto"
-    },
-    "duration": {
-      "type": "slider",
-      "label": "Msg Duration on Screen (0 is infinite)",
-      "value": 10,
-      "min": 0,
-      "max": 120,
-      "step": 1
-    },
-    "newAnimationSpeed": {
-      "group": "Animation Settings",
-      "type": "slider",
-      "label": "New Message Animation Speed",
-      "value": 0.5,
-      "min": 0,
-      "max": 5,
-      "step": 0.25
-    },
-    "oldAnimationSpeed": {
-      "group": "Animation Settings",
-      "type": "slider",
-      "label": "Old Message Animation Speed",
-      "value": 5,
-      "min": 0,
-      "max": 5,
-      "step": 0.25
-    },
-    "newMessageAnimation": {
-      "group": "Animation Settings",
-         "type": "dropdown",
-      "label": "New Message Animation:",
-      "value": "",
-      "options": {
-        "": "None",
-        "slideIn": "Slide-In",
-        "bounceIn": "Bounce-In",
-        "fadeIn": "Fade-In",
-        "backIn": "Back-In",
-        "lightSpeedIn": "Light-Speed",
-        "flipInX": "Flip-In-X",
-        "flipInY": "Flip-In-Y",
-        "rollIn": "Roll-In",
-        "jackInTheBox": "Jack-in-the-Box",
-        "slideIn": "Slide-In",
-        "zoomIn": "Zoom-In"
-      }  
-    },  
-      "newMessageAnimationDirection": {
-      "group": "Animation Settings",
-      "type": "dropdown",
-      "label": "New Message Animation Direction:",
+  "testButton": {
+    "type": "button",
+    "label": "Test Message",
+    "value": "test"
+  },
+  "emoteSize": {
+    "type": "dropdown",
+    "label": "Emote Size:",
+    "value": "medium",
+    "options": {
+      "1.25em": "Small",
+      "1.5em": "Medium",
+      "1.75em": "Large"
+    } 
+  },
+  "messageLimit": {
+    "type": "number",
+    "label": "Messages to Display (0 is infinite)",
+    "value": 0,
+    "min": 0,
+    "max": 20,
+    "step": 1
+  },
+  "enableDropshadow": {
+    "group": "Message Box Styles",
+    "type": "dropdown",
+    "label": "Add Drop-Shadow",
+    "value": "false",
+    "options": {
+      "true": "Yes",
+      "false": "No"
+    } 
+  },
+  "filterCommands": {
+    "group": "Message Filtering",
+    "type": "dropdown",
+    "label": "Filter Chat Commands:",
+    "value": "false",
+    "options": {
+      "true": "Yes",
+      "false": "No"
+    } 
+  },
+  "whitelistUsers": {
+    "group": "Message Filtering",
+    "type": "text",
+    "label": "White-List Users (separate with commas)",
+    "value": ""
+  },
+  "blacklistUsers": {    
+    "group": "Message Filtering",
+    "type": "text",
+    "label": "Black-List Users (separate with commas)",
+    "value": ""
+  },
+  "textboxColor": {
+    "group": "Chat Box Styles",
+    "type": "colorpicker",
+    "label": "Chat-box color",
+    "value": "#434343"
+  },
+  "textboxBorderColor": {
+    "group": "Chat Box Styles",
+    "type": "colorpicker",
+    "label": "Chat Box Border Color",
+    "value": "#0a0a0a"
+  },
+  "textboxBorderWidth": {
+    "group": "Chat Box Styles",
+    "type": "slider",
+    "label": "Chat Box Border Width",
+    "value": 10.5,
+    "min": 0,
+    "max": 20,
+    "step": 0.5
+  },
+  "chatMessageColor": {
+    "group": "Message Box Styles",
+    "type": "colorpicker",
+    "label": "Message Background Color",
+    "value": "rgba(133, 124, 124, 0.55)"
+  },
+  "textColor": {
+    "group": "Text Style",
+    "type": "colorpicker",
+    "label": "Message Text Color",
+    "value": "rgb(232, 231, 231)"
+  },
+  "fontSize": {
+    "group": "Text Style",
+    "type": "number",
+    "label": "Font Size",
+    "value": 12,
+    "min": 0,
+    "max": 100,
+    "step": 1
+  },
+  "textColorTransform": {
+    "group": "Text Style",
+    "type": "dropdown",
+    "label": "Message Color Mod:",
+    "value": "",
+    "options": {
       "": "None",
-      "options": {
-        "": "None",
-        "Up": "Up",
-        "Down": "Down",
-        "Left": "Left",
-        "Right": "Right"
-      }  
-    },
-      "oldMessageAnimation": {
-        "group": "Animation Settings",
-         "type": "dropdown",
-      "label": "Old Message Animation:",
-      "value": "None",
-      "options": {
-        "none": "None",
-        "slideOut": "Slide-Out",
-        "bounceOut": "Bounce-Out",
-        "fadeOut": "Fade-Out",
-        "backOut": "Back-Out",
-        "lightSpeedOut": "Light-Speed",
-        "flipOutX": "Flip-Out-X",
-        "flipOutY": "Flip-Out-Y",
-        "rollOut": "Roll-Out",
-        "slideOut": "Slide-Out",
-        "zoomOut": "Zoom-Out"
-      }  
-    },  
-    "oldMessageAnimationDirection": {
+      "brighten": "Brighten",
+      "darken": "Darken"
+    }  
+  },
+  "chatBoxCornerRadius": {
+    "group": "Chat Box Styles",
+    "type": "slider",
+    "label": "Chat box Corner Radius",
+    "value": 47,
+    "min": 0,
+    "max": 100,
+    "step": 1
+  },
+  "messageBoxCornerRadius": {
+    "group": "Message Box Styles",
+    "type": "slider",
+    "label": "Message Corner Radius",
+    "value": 0.5,
+    "min": 0,
+    "max": 100,
+    "step": 1
+  },
+  "messageBorderColor": {
+    "group": "Message Box Styles",
+    "type": "colorpicker",
+    "label": "Chat Box Border Color",
+    "value": "#0a0a0a"
+  },
+  "messageBorderWidth": {
+    "group": "Message Box Styles",
+    "type": "slider",
+    "label": "Message Border Width",
+    "value": 0,
+    "min": 0,
+    "max": 20,
+    "step": 0.5
+  },
+  "leftMessagePadding": {
+    "group": "Message Box Styles",
+    "type": "number",
+    "label": "Left Padding (px)",
+    "value": 10,
+    "min": 0,
+    "step": 1
+  },
+  "rightMessagePadding": {
+    "group": "Message Box Styles",
+    "type": "number",
+    "label": "Right Padding (px)",
+    "value": 10,
+    "min": 0,
+    "step": 1
+  },
+  "topMessagePadding": {
+    "group": "Message Box Styles",
+    "type": "number",
+    "label": "Top Padding (px)",
+    "value": 10,
+    "min": 0,
+    "step": 1
+  },
+  "bottomMessagePadding": {
+    "group": "Message Box Styles",
+    "type": "number",
+    "label": "Bottom Padding (px)",
+    "value": 10,
+    "min": 0,
+    "step": 1
+  },
+  "leftChatPadding": {
+    "group": "Chat Box Styles",
+    "type": "number",
+    "label": "Left Padding (px)",
+    "value": 10,
+    "min": 0,
+    "step": 1
+  },
+  "rightChatPadding": {
+    "group": "Chat Box Styles",
+    "type": "number",
+    "label": "Right Padding (px)",
+    "value": 10,
+    "min": 0,
+    "step": 1
+  },
+  "topChatPadding": {
+    "group": "Chat Box Styles",
+    "type": "number",
+    "label": "Top Padding (px)",
+    "value": 10,
+    "min": 0,
+    "step": 1
+  },
+  "bottomChatPadding": {
+    "group": "Chat Box Styles",
+    "type": "number",
+    "label": "Bottom Padding (px)",
+    "value": 10,
+    "min": 0,
+    "step": 1
+  },
+  "messageMargins": {
+    "group": "Message Box Styles",
+    "type": "number",
+    "label": "Message Padding",
+    "value": 10,
+    "min": 0,
+    "step": 1
+  },
+  "fontName": {
+    "group": "Text Style",
+    "type": "googleFont",
+    "label": "Select a font:",
+    "value": "Roboto"
+  },
+  "duration": {
+    "type": "slider",
+    "label": "Msg Duration on Screen (0 is infinite)",
+    "value": 10,
+    "min": 0,
+    "max": 120,
+    "step": 1
+  },
+  "newAnimationSpeed": {
+    "group": "Animation Settings",
+    "type": "slider",
+    "label": "New Message Animation Speed",
+    "value": 0.5,
+    "min": 0,
+    "max": 5,
+    "step": 0.25
+  },
+  "oldAnimationSpeed": {
+    "group": "Animation Settings",
+    "type": "slider",
+    "label": "Old Message Animation Speed",
+    "value": 5,
+    "min": 0,
+    "max": 5,
+    "step": 0.25
+  },
+  "newMessageAnimation": {
+    "group": "Animation Settings",
+   	"type": "dropdown",
+    "label": "New Message Animation:",
+    "value": "",
+    "options": {
+      "": "None",
+      "slideIn": "Slide-In",
+      "bounceIn": "Bounce-In",
+      "fadeIn": "Fade-In",
+      "backIn": "Back-In",
+      "lightSpeedIn": "Light-Speed",
+      "flipInX": "Flip-In-X",
+      "flipInY": "Flip-In-Y",
+      "rollIn": "Roll-In",
+      "jackInTheBox": "Jack-in-the-Box",
+      "slideIn": "Slide-In",
+      "zoomIn": "Zoom-In"
+    }  
+  },  
+    "newMessageAnimationDirection": {
+    "group": "Animation Settings",
+    "type": "dropdown",
+    "label": "New Message Animation Direction:",
+    "": "None",
+    "options": {
+      "": "None",
+      "Up": "Up",
+      "Down": "Down",
+      "Left": "Left",
+      "Right": "Right"
+    }  
+  },
+    "oldMessageAnimation": {
       "group": "Animation Settings",
-      "type": "dropdown",
-      "label": "Old Message Animation Direction:",
-      "value": "",
-      "options": {
-        "": "None",
-        "Up": "Up",
-        "Down": "Down",
-        "Left": "Left",
-        "Right": "Right"
-      }  
-    },
-    "sideBySide": {
-      "type": "dropdown",
-      "label": "Side-by-side chat",
-      "value": "false",
-      "options": {
-        "true": "Yes",
-        "false": "No"
-      }  
-    },
-    "widgetName": {
-      "type": "hidden",
-      "value": "Yet Another Chat Widget"
-    }, 
-    "widgetAuthor": {
-      "type": "hidden",
-      "value": "AaroniusH"
-    }
+   	"type": "dropdown",
+    "label": "Old Message Animation:",
+    "value": "None",
+    "options": {
+      "none": "None",
+      "slideOut": "Slide-Out",
+      "bounceOut": "Bounce-Out",
+      "fadeOut": "Fade-Out",
+      "backOut": "Back-Out",
+      "lightSpeedOut": "Light-Speed",
+      "flipOutX": "Flip-Out-X",
+      "flipOutY": "Flip-Out-Y",
+      "rollOut": "Roll-Out",
+      "slideOut": "Slide-Out",
+      "zoomOut": "Zoom-Out"
+    }  
+  },  
+  "oldMessageAnimationDirection": {
+    "group": "Animation Settings",
+    "type": "dropdown",
+    "label": "Old Message Animation Direction:",
+    "value": "",
+    "options": {
+      "": "None",
+      "Up": "Up",
+      "Down": "Down",
+      "Left": "Left",
+      "Right": "Right"
+    }  
+  },
+  "sideBySide": {
+    "type": "dropdown",
+    "label": "Side-by-side chat",
+    "value": "false",
+    "options": {
+      "true": "Yes",
+      "false": "No"
+    }  
+  },
+  "widgetName": {
+    "type": "hidden",
+    "value": "Yet Another Chat Widget"
+  }, 
+  "widgetAuthor": {
+    "type": "hidden",
+    "value": "AaroniusH"
   }
+}
