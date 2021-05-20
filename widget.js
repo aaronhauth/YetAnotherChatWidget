@@ -16,8 +16,6 @@ jQuery.expr.filters.offscreen = function(el) {
   
   // if a user doesn't have a provided display color. we make one up and store the link in this dictionary!
   const colorlessUsers = {};
-
-  var messageNumber = 0;
   
   // sidebar field data with settings
   var fieldData;
@@ -117,10 +115,10 @@ jQuery.expr.filters.offscreen = function(el) {
     // add message to beginning of list
     $(".chatContainer").prepend(domMessage);
     if (fieldData.duration > 0) {
-      inFlightMessages[messageData.msgId] = {messageNumber: messageNumber++, timeoutId: setTimeout(removeDomMessage(domMessage), fieldData.duration * 1000),
+      inFlightMessages[messageData.msgId] = {timeoutId: setTimeout(removeDomMessage(domMessage), fieldData.duration * 1000),
                                      userId: messageData.userId};
     } else {
-      inFlightMessages[messageData.msgId] = {messageNumber: messageNumber++, timeoutId: null, userId: messageData.userId};
+      inFlightMessages[messageData.msgId] = {timeoutId: null, userId: messageData.userId};
     }
     
     // clear any messages that are significantly off-screen.
@@ -141,13 +139,10 @@ jQuery.expr.filters.offscreen = function(el) {
     }
     
     if (fieldData.messageLimit && $(".chatMessage").not(".isRemoving").length > fieldData.messageLimit) {
-      console.log(inFlightMessages);
 	  let messageToRemove = $(".chatMessage").not(".isRemoving").last();
-      console.log(messageToRemove);
       let inFlightMessageId = extractId(messageToRemove[0].id);
       clearTimeout(inFlightMessages[inFlightMessageId]);
       delete inFlightMessages[inFlightMessageId];
-      console.log("removing Message")
       removeDomMessage(messageToRemove)();
     }
     
