@@ -7,7 +7,7 @@
   "emoteSize": {
     "type": "dropdown",
     "label": "Emote Size:",
-    "value": "medium",
+    "value": "1.5em",
     "options": {
       "1.25em": "Small",
       "1.5em": "Medium",

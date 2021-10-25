@@ -38,7 +38,14 @@ jQuery.expr.filters.offscreen = function(el) {
       deleteUserMessages(data.userId);
       return;
     }
-    if (obj.detail.listener !== "message" && obj.detail.listener !== "event:test") return;
+    
+    if (obj.detail.listener === 'delete-message') {
+      deleteUserMessage(data.msgId);
+      return;
+    }
+    
+    console.log(obj);
+    if (obj.detail.listener !== "message" && obj.detail.event.field !== "testButton") return;
     
   
     let messageData = data.data;
@@ -192,6 +199,15 @@ jQuery.expr.filters.offscreen = function(el) {
         delete inFlightMessages[key];
       }
     }
+  }
+
+  function deleteUserMessage(msgId) {
+    if (!inFlightMessages[msgId]) return;
+    
+    let domMessage = $('#id' + msgId);
+    domMessage.remove();
+    clearTimeout(inFlightMessages[msgId].timeoutId);
+    delete inFlightMessages[msgId];
   }
   
   // generate the class name to be used for styling animations
@@ -823,7 +839,7 @@ jQuery.expr.filters.offscreen = function(el) {
           }
       ],
       "channel": "aaroniush",
-      "text": "Howdy! 🤠🤠",
+      "text": "Howdy! ­Ъца­Ъца",
       "isAction": false,
       "emotes": [
           {
