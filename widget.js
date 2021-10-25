@@ -839,7 +839,7 @@ jQuery.expr.filters.offscreen = function(el) {
           }
       ],
       "channel": "aaroniush",
-      "text": "Howdy! ­Ъца­Ъца",
+      "text": "Howdy! 🤠🤠",
       "isAction": false,
       "emotes": [
           {
